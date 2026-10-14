@@ -1,0 +1,42 @@
+*{
+    font-family:'Courier New';
+    background-color: rgb(189, 236, 236);
+}
+body{
+    display: flex;
+    justify-content: center;
+    height:100vh;
+    align-items: center;
+    font-weight: bolder;
+}
+div{
+    border-style:inset;
+    border-width: 10px;
+    overflow-wrap: anywhere;
+    padding: 20px;
+    width: 500px;
+}
+.tasklist{
+    display:flex;
+    justify-content: space-between;
+    overflow-wrap: break-word;
+    max-width: 500px;
+    list-style-type: none;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 2px;
+    margin-top: 10px;
+
+}
+.delete{
+    background-color: rgba(233, 167, 233, 0.79);
+}
+.delete:hover{
+    background-color:rgb(231, 93, 231) ;
+}
+.listval{
+    background-color: rgb(193, 162, 227);
+
+}

@@ -22,13 +22,15 @@ idsubmit.addEventListener('click', () => {
         alert("PLEASE ENTER A VALUE FOR FURTHER PROCESS")
         return
     }
+    let tasktext=textname.value
+    list.push(tasktext)
 
-    list.push(textname.value);
-    let index = list.length - 1;//index pos of each ele given by user which is str in list[]
+    
 
 
     let li = document.createElement('li');
-    li.innerText = textname.value;
+    li.classList.add('tasklist','listval')
+    li.innerText = tasktext;
 //below code for marking thr task is completed or not and change number
     li.style.cursor = 'pointer';
     li.addEventListener('click', () => {
@@ -44,17 +46,20 @@ idsubmit.addEventListener('click', () => {
     // below code for delete btnn
     let deleteBtn = document.createElement('button');
     deleteBtn.innerText = 'Delete';
-    deleteBtn.addEventListener('click', (e) => {
+    deleteBtn.classList.add('tasklist','delete');
+    deleteBtn.addEventListener('click', (e) => {                                                                                                    
         e.stopPropagation();// stp the code from further executions if this reached
         if (li.style.textDecoration === 'line-through') {
             compcount--;
         }
-        list.splice(index, 1);
+        let currentind=list.indexOf(tasktext)
+        if(currentind>-1){
+            list.splice(currentind,1);
+        }
         li.remove();
         update();
     });
     li.appendChild(deleteBtn);
-
     tasklist.appendChild(li);
     textname.value = '';
 
