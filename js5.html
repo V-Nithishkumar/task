@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Ticket Booking App</title>
+    <style>
+        .btn button{
+    background-color: rgb(187, 178, 187);
+    padding: 10px;
+    margin-right: 15px;
+    border-color:rgb(5, 5, 5);
+    box-shadow: 0px 0px 5px;
+}
+.btn button img{
+    height: 400px;
+    width: 300px;
+}
+.btn button:hover{
+    box-shadow:0 10px 15px gray;
+    transform: translateY(-20px);
+    transition: 1s;
+}
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 30px; line-height: 1.6;background-color: antiquewhite;">
+
+    <h1 style="text-align: center;">Movie Ticket Booking</h1>
+    <hr>
+
+    <h2>Select a movie</h2>
+    <div class="btn" style="margin-bottom: 20px;">
+         <button type="button" onclick="selectMovie('American Psycho', 149, ['13:00', '17:30', '21:00'])"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoHFR4DD4atlMCJAHNkSGfw3cJA5Sn6qWrlC69H-CTdg&s=10" > <p>American Psycho (149rs)</p></button>
+        <button type="button"  onclick="selectMovie('Fight Club', 149, ['14:00', '18:00', '22:00'])"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa6AqDA_HnWArbpMlhZ6-7V_J6Mf377_IFIny175i43A&s=10"><p>FightClub (149rs)</p></button>
+        <button type="button"  onclick="selectMovie('The Wolf of Wallstreet', 199, ['11:00', '15:00', '19:00'])"><img src="https://bestsimilar.com/img/movie/thumb/ec/591.jpg"> <p>The Wolf of Wallstreet (199rs)</p></button>
+        <button type="button" onclick="selectMovie('The conjuring',149,['15:00','18:00','23:00'])"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1Af90qgyd-iAlwyCldkCqV8bX02wR6BwwdX-m760pA&s=10"><p>The conjuring (149Rs)</p></button>
+    </div>
+    <hr>
+
+    <h2>Booking tickets</h2>
+    <form id="booking-form" onsubmit="confirmBooking(event)">
+        <p>
+            <label>Selected Movie: </label><br>
+            <input type="text" id="display-movie" readonly placeholder="Choose a movie from the above list.." style="width: 300px; padding: 5px;">
+        </p>
+
+        <p>
+            <label>Available Showtimes: </label><br>
+            <select id="showtime" style="width: 312px; padding: 5px;">
+                <option value="">-- Choose a time --</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="quantity">Ticket Quantity: </label><br>
+            <input type="number" id="quantity" oninput="calculateTotal()" style="width: 300px; padding: 5px;">
+        </p>
+
+        <p>
+            <label for="email">Your Email Address: </label><br>
+            <input type="text" id="email" placeholder="yourmail@gmail.com" style="width: 300px; padding: 5px;">
+        </p>
+
+        <h3 style="color: green;">Total Estimated Bill: <span id="live-total">0Rs.</span></h3>
+
+        <div style="margin-top: 15px;">
+            <button type="submit" style="padding: 10px 20px; font-weight: bold; background-color: lightblue; cursor: pointer;">Book Tickets Now</button>
+            <button type="button" onclick="clearForm()" style="padding: 10px 20px; margin-left: 10px; cursor: pointer;">Reset Form Fields</button>
+        </div>
+    </form>
+    <hr>
+
+    <h2>Confirmed movies</h2>
+    <p>
+        <label for="search-filter">Search Bookings by Title: </label><br>
+        <input type="text" id="search-filter" oninput="showTickets()" placeholder="Type movie name to filter..." style="width: 300px; padding: 5px; margin-bottom: 10px;">
+    </p>
+
+    <div id="tickets-container">
+    </div>
+
+    <script src="js5.js"></script>
+</body>
+</html>
